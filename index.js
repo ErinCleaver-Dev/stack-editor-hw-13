@@ -36,11 +36,6 @@ class Stack {
 const undo = new Stack();
 const redo = new Stack();
 
-redo.push(45)
-redo.push(45)
-redo.pop()
-redo.print()
-
 const editor = document.getElementById("editor");
 
 editor.addEventListener("keydown", ev => {
@@ -65,7 +60,7 @@ editor.addEventListener("keydown", ev => {
     // our UNDO stack as well!
   } else {
     // Else we should just send ev.target.value to our undo object!
-    
+    redo.push(editor.value).print()
     
   }
 });
