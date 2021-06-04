@@ -25,7 +25,7 @@ class Stack {
     return this.data.length
   }
   isEmpty() {
-    if(this.length() == 0) {
+    if(list.length) {
       return true
     }
   }
