@@ -14,12 +14,11 @@ class Stack {
   }
   pop() {
     if(this.isEmpty()) {
-      return "Empty stack"
-    } else {
+      return "Empty"
+    } else if(this.top >= 0) {
       this.data.pop()
-      this.top = this.top - 1;
+      this.top -=1;
     }
-    return this
   }
   length() {
     return this.data.length
@@ -51,7 +50,7 @@ editor.addEventListener("keydown", ev => {
     // edit the contents of the editor (ev.target.value) with
     // the last item from the stack.
     
-    undo.pop().print()
+    undo.pop()
 
     // Don't forget!  We also have to make sure we're loading
     // our redo stack as well!
