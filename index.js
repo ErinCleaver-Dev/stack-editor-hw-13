@@ -16,8 +16,8 @@ class Stack {
     if(this.isEmpty()) {
       return "Empty stack"
     }
-    this.data.pop()
     this.top = this.top - 1;
+    this.data.pop()
     return this
   }
   length() {
@@ -49,10 +49,11 @@ editor.addEventListener("keydown", ev => {
     // with the front-end.  In this event listener, we need to
     // edit the contents of the editor (ev.target.value) with
     // the last item from the stack.
-    ev.target.value += undo.lastValue()
-    redo.push(redo.lastValue())
-    undo.pop().print()
-
+    if(undo.length()) {
+      ev.target.value += undo.lastValue()
+      redo.push(redo.lastValue())
+      undo.pop().print()
+    }
     // Don't forget!  We also have to make sure we're loading
     // our redo stack as well!
   } else if (ev.ctrlKey && ev.key === "r") {
