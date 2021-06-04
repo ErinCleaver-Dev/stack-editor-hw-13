@@ -2,33 +2,44 @@
 import "./style.css";
 
 class Stack {
-  constructor() {}
+  constructor() {
+    this.data = []
+    this.top = 0;
+  }
 
   push(value) {
     this.data[this.top] = value;
     this.top = this.top + 1;
+    return this
   }
   pop() {
-    if(isEmpty) {
+    if(this.isEmpty()) {
       return "Empty stack"
     }
-
-
+    this.data.pop()
+    this.top = this.top - 1;
   }
   length() {
     return this.data.length
   }
   isEmpty() {
-    if(this.data.length == 0) {
+    if(this.length() == 0) {
       return true
     }
-    this.data.pop()
-    this.top = this.top - 1;
+  }
+
+  print() {
+    console.log(this.data)
   }
 }
 
 const undo = new Stack();
 const redo = new Stack();
+
+redo.push(45)
+redo.push(45)
+redo.pop()
+redo.print()
 
 const editor = document.getElementById("editor");
 
@@ -39,7 +50,7 @@ editor.addEventListener("keydown", ev => {
     // with the front-end.  In this event listener, we need to
     // edit the contents of the editor (ev.target.value) with
     // the last item from the stack.
-    
+
 
 
     // Don't forget!  We also have to make sure we're loading
@@ -54,5 +65,7 @@ editor.addEventListener("keydown", ev => {
     // our UNDO stack as well!
   } else {
     // Else we should just send ev.target.value to our undo object!
+    
+    
   }
 });
