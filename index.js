@@ -48,7 +48,7 @@ editor.addEventListener("keydown", ev => {
     // with the front-end.  In this event listener, we need to
     // edit the contents of the editor (ev.target.value) with
     // the last item from the stack.
-    editor.innerHTML = redo.lastValue()
+    ev.target.value += redo.lastValue()
     undo.push(redo.lastValue())
     redo.pop()
 
@@ -60,15 +60,15 @@ editor.addEventListener("keydown", ev => {
     // stack functionality here!  Remember!  We want to set
     // (ev.target.value) with your value from your redo stack.
 
-    editor.innerHTML = undo.lastValue()
-    redo.push(redo.lastValue())
+    ev.target.value -= undo.lastValue()
+    redo.push(undo.lastValue())
     undo.pop()
 
     // Don't forget!  We also need to make sure we're loading
     // our UNDO stack as well!
   } else {
     // Else we should just send ev.target.value to our undo object!
-    redo.push(editor.value).print()
+    redo.push(ev.target.value).print()
     
   }
 });
