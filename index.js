@@ -4,10 +4,27 @@ import "./style.css";
 class Stack {
   constructor() {}
 
-  push(value) {}
-  pop() {}
-  length() {}
-  isEmpty() {}
+  push(value) {
+    this.data[this.top] = value;
+    this.top = this.top + 1;
+  }
+  pop() {
+    if(isEmpty) {
+      return "Empty stack"
+    }
+
+
+  }
+  length() {
+    return this.data.length
+  }
+  isEmpty() {
+    if(this.data.length == 0) {
+      return true
+    }
+    this.data.pop()
+    this.top = this.top - 1;
+  }
 }
 
 const undo = new Stack();
