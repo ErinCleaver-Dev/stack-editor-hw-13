@@ -15,10 +15,11 @@ class Stack {
   pop() {
     if(this.isEmpty()) {
       return "Empty stack"
+    } else {
+      this.data.pop()
+      this.top = this.top - 1;
+      return this
     }
-    this.data.pop()
-    this.top = this.top - 1;
-    return this
   }
   length() {
     return this.data.length
@@ -60,9 +61,7 @@ editor.addEventListener("keydown", ev => {
     // stack functionality here!  Remember!  We want to set
     // (ev.target.value) with your value from your redo stack.
 
-    ev.target.value -= undo.lastValue()
-    redo.push(undo.lastValue())
-    undo.pop()
+    
 
     // Don't forget!  We also need to make sure we're loading
     // our UNDO stack as well!
