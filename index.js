@@ -62,9 +62,9 @@ editor.addEventListener("keydown", ev => {
     // stack functionality here!  Remember!  We want to set
     // (ev.target.value) with your value from your redo stack.
     if(redo.length()) {
-      ev.target.value -= undo.lastValue()
-      redo.push(undo.lastValue())
-      undo.pop()
+      ev.target.value = redo.lastValue()
+      undo.push(redo.lastValue())
+      redo.pop()
     }
 
     // Don't forget!  We also need to make sure we're loading
