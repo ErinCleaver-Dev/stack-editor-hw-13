@@ -18,8 +18,8 @@ class Stack {
     } else {
       this.data.pop()
       this.top = this.top - 1;
-      return this
     }
+    return this
   }
   length() {
     return this.data.length
