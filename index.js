@@ -58,7 +58,7 @@ editor.addEventListener("keydown", ev => {
     if(undo.length()) {
       let value = undo.pop()
       redo.push(value)
-      undo.pop()
+      ev.target.value = value;
     }
     // Don't forget!  We also have to make sure we're loading
     // our redo stack as well!
@@ -69,8 +69,8 @@ editor.addEventListener("keydown", ev => {
     // (ev.target.value) with your value from your redo stack.
     if(redo.length()) {
       let value = redo.pop()
-      ev.target.value = value
-      redo.pop()
+      redo.push(value)
+      ev.target.value = value;
     }
 
     // Don't forget!  We also need to make sure we're loading
