@@ -57,7 +57,6 @@ editor.addEventListener("keydown", ev => {
     // edit the contents of the editor (ev.target.value) with
     // the last item from the stack.
     if(undo.length()) {
-      console.log("testing")
       ev.target.value = undo.lastValue()
       redo.push(undo.lastValue())
       undo.pop()
@@ -66,7 +65,6 @@ editor.addEventListener("keydown", ev => {
     // our redo stack as well!
   } else if (ev.ctrlKey && ev.key === "r") {
     ev.preventDefault();
-    console.log("redo")
     // Just like you did with the undo functionality, link your redo
     // stack functionality here!  Remember!  We want to set
     // (ev.target.value) with your value from your redo stack.
