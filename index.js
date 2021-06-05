@@ -43,7 +43,7 @@ const redo = new Stack();
 const editor = document.getElementById("editor");
 
 editor.addEventListener("keydown", ev => {
-  if ((ev.ctrlKey || ev.metaKey) && ev.key === "z") {
+  if (ev.ctrlKey && ev.key === "z") {
     ev.preventDefault();
 
     
@@ -52,13 +52,14 @@ editor.addEventListener("keydown", ev => {
     // edit the contents of the editor (ev.target.value) with
     // the last item from the stack.
     if(undo.length()) {
+      console.log("testing")
       ev.target.value = undo.lastValue()
       redo.push(undo.lastValue())
-      undo.pop()
+      undo.pop().print()
     }
     // Don't forget!  We also have to make sure we're loading
     // our redo stack as well!
-  } else if ((ev.ctrlKey || ev.metaKey) && ev.key === "r") {
+  } else if (ev.ctrlKey && ev.key === "r") {
     ev.preventDefault();
     console.log("redo")
     // Just like you did with the undo functionality, link your redo
@@ -67,7 +68,7 @@ editor.addEventListener("keydown", ev => {
     if(redo.length()) {
       undo.push(redo.lastValue())
       ev.target.value = redo.lastValue()
-      redo.pop()
+      redo.pop();
     }
 
     // Don't forget!  We also need to make sure we're loading
