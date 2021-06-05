@@ -55,7 +55,6 @@ editor.addEventListener("keydown", ev => {
       console.log("testing")
       ev.target.value = undo.lastValue()
       redo.push(undo.lastValue())
-      redo.print()
       undo.pop()
     }
     // Don't forget!  We also have to make sure we're loading
