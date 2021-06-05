@@ -42,7 +42,7 @@ const redo = new Stack();
 
 const editor = document.getElementById("editor");
 
-editor.addEventListener("keypress", ev => {
+editor.addEventListener("keydown", ev => {
   if (ev.ctrlKey && ev.key === "z") {
     ev.preventDefault();
 
@@ -55,6 +55,7 @@ editor.addEventListener("keypress", ev => {
       console.log("testing")
       ev.target.value = undo.lastValue()
       redo.push(undo.lastValue())
+      redo.print()
       undo.pop().print()
     }
     // Don't forget!  We also have to make sure we're loading
@@ -68,7 +69,7 @@ editor.addEventListener("keypress", ev => {
     if(redo.length()) {
       undo.push(redo.lastValue())
       ev.target.value = redo.lastValue()
-      redo.pop();
+      redo.pop().print();
     }
 
     // Don't forget!  We also need to make sure we're loading
