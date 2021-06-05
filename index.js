@@ -46,20 +46,21 @@ editor.addEventListener("keydown", ev => {
   if ((ev.ctrlKey || ev.metaKey) && ev.key === "z") {
     ev.preventDefault();
 
-    console.log("undo")
+    
     // Here is where we're going to link the undo functionality
     // with the front-end.  In this event listener, we need to
     // edit the contents of the editor (ev.target.value) with
     // the last item from the stack.
     if(undo.length()) {
-      ev.target.value += undo.lastValue()
+      ev.target.value = undo.lastValue()
       redo.push(redo.lastValue())
-      undo.pop().print()
+      undo.pop()
     }
     // Don't forget!  We also have to make sure we're loading
     // our redo stack as well!
   } else if ((ev.ctrlKey || ev.metaKey) && ev.key === "r") {
     ev.preventDefault();
+    console.log("redo")
     // Just like you did with the undo functionality, link your redo
     // stack functionality here!  Remember!  We want to set
     // (ev.target.value) with your value from your redo stack.
