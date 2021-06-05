@@ -28,6 +28,11 @@ class Stack {
       return true
     }
   }
+  clear() {
+    this.data = [];
+    this.top = 0;
+  }
+
   lastValue() {
     return this.data[this.top-1]
   }
@@ -76,6 +81,5 @@ editor.addEventListener("keydown", ev => {
   } else {
     // Else we should just send ev.target.value to our undo object!
     undo.push(editor.value).print()
-    
   }
 });
