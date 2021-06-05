@@ -45,7 +45,7 @@ const undo = new Stack();
 const redo = new Stack();
 
 const editor = document.getElementById("editor");
-
+// With keydown
 editor.addEventListener("keydown", ev => {
   if (ev.ctrlKey && ev.key === "z") {
     ev.preventDefault();
