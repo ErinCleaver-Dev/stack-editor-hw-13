@@ -56,7 +56,7 @@ editor.addEventListener("keydown", ev => {
       ev.target.value = undo.lastValue()
       redo.push(undo.lastValue())
       redo.print()
-      undo.pop().print()
+      undo.pop()
     }
     // Don't forget!  We also have to make sure we're loading
     // our redo stack as well!
@@ -69,7 +69,7 @@ editor.addEventListener("keydown", ev => {
     if(redo.length()) {
       undo.push(redo.lastValue())
       ev.target.value = redo.lastValue()
-      redo.pop().print();
+      redo.pop()
     }
 
     // Don't forget!  We also need to make sure we're loading
