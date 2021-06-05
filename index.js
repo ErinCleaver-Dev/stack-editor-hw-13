@@ -42,7 +42,7 @@ const redo = new Stack();
 
 const editor = document.getElementById("editor");
 
-editor.addEventListener("keydown", ev => {
+editor.addEventListener("keypress", ev => {
   if (ev.ctrlKey && ev.key === "z") {
     ev.preventDefault();
 
