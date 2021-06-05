@@ -79,5 +79,6 @@ editor.addEventListener("keydown", ev => {
   } else {
     // Else we should just send ev.target.value to our undo object!
     undo.push(editor.value).print()
+    redo.clear()
   }
 });
