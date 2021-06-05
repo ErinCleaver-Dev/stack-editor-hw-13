@@ -45,6 +45,8 @@ const editor = document.getElementById("editor");
 editor.addEventListener("keydown", ev => {
   if ((ev.ctrlKey || ev.metaKey) && ev.key === "z") {
     ev.preventDefault();
+
+    console.log("undo")
     // Here is where we're going to link the undo functionality
     // with the front-end.  In this event listener, we need to
     // edit the contents of the editor (ev.target.value) with
